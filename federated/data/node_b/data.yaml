@@ -1,0 +1,18 @@
+# Data configuration for Zone B
+path: ./data/node_b
+train: images/train
+val: images/val
+
+nc: 11
+names:
+  0: boots
+  1: glasses
+  2: gloves
+  3: helmet
+  4: no boots
+  5: no glasses
+  6: no gloves
+  7: no helmet
+  8: no vest
+  9: person
+  10: vest

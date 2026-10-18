@@ -99,3 +99,10 @@ yarn-error.log*
 
 # OS-specific
 .vscode-settings.json
+
+# Ultralytics & Federated training runs
+runs/
+fed_runs/
+fed_baseline/
+*.csv
+
