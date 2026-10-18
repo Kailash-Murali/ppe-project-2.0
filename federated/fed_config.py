@@ -13,6 +13,10 @@ EPOCHS_PER_ROUND = 3
 BATCH = 8
 SEED = 42
 
+DEFAULT_PORT = "8088"
+DEFAULT_SERVER = f"127.0.0.1:{DEFAULT_PORT}"
+
+
 # 11-Class list from backend/best_openvino_model/metadata.yaml - Single source of truth
 CLASS_NAMES = {
     0: "boots",

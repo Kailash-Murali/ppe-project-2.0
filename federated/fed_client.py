@@ -12,7 +12,7 @@ from ultralytics import YOLO
 
 # Add parent to path if needed
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fed_config import BATCH, EPOCHS_PER_ROUND, IMGSZ, MODEL_PATH, SEED
+from fed_config import BATCH, DEFAULT_SERVER, EPOCHS_PER_ROUND, IMGSZ, MODEL_PATH, SEED
 
 
 def get_weights(model: YOLO) -> List[np.ndarray]:
@@ -99,7 +99,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flower Client for PPE Detection")
     parser.add_argument("--data", required=True, help="Path to data.yaml (e.g. data/node_a/data.yaml or coco8.yaml)")
     parser.add_argument("--node-id", required=True, help="Identifier: node_a, node_b, etc.")
-    parser.add_argument("--server", default="127.0.0.1:8080", help="Flower server host:port")
+    parser.add_argument("--server", default=DEFAULT_SERVER, help="Flower server host:port")
     parser.add_argument("--device", default="auto", help="cpu, 0 (GPU), or auto")
     args = parser.parse_args()
 

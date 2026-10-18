@@ -12,7 +12,7 @@ import torch
 from ultralytics import YOLO
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fed_config import MODEL_PATH
+from fed_config import DEFAULT_PORT, MODEL_PATH
 
 
 def weighted_metrics_average(metrics: List[Tuple[int, Dict]]) -> Dict:
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flower FedAvg Server for PPE Detection")
     parser.add_argument("--rounds", type=int, default=5, help="Number of FedAvg rounds (e.g. 2 for dryrun, 5-10 for full)")
     parser.add_argument("--min-clients", type=int, default=2, help="Minimum number of active clients required")
-    parser.add_argument("--port", type=str, default="8080", help="Port to bind server")
+    parser.add_argument("--port", type=str, default=DEFAULT_PORT, help="Port to bind server")
     parser.add_argument("--output", type=str, default="federated_global.pt", help="Path to save global checkpoint")
     parser.add_argument("--log-csv", type=str, default="fedavg_metrics.csv", help="Path to write per-round metrics CSV")
     args = parser.parse_args()
