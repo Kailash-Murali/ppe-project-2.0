@@ -21,7 +21,7 @@ import {
 } from '@mui/material';
 import {
   CameraAltOutlined, DarkModeOutlined,
-  LightModeOutlined, MenuOutlined,
+  LightModeOutlined, MenuOutlined, BarChartOutlined,
 } from '@mui/icons-material';
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -30,6 +30,7 @@ const TOOLBAR_HEIGHT = 52;
 
 const NAV_ITEMS = [
   { to: '/live-detection', label: 'PPE Detection', icon: <CameraAltOutlined fontSize="small" /> },
+  { to: '/model-metrics',  label: 'Model Metrics', icon: <BarChartOutlined  fontSize="small" /> },
 ];
 
 type Props = { children: ReactNode; mode: 'light' | 'dark'; onToggleMode: () => void };

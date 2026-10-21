@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { buildTheme } from './theme';
 import { DashboardLayout } from './components/DashboardLayout';
 import { LiveDetection } from './components/LiveDetection/LiveDetection';
+import { ModelMetrics } from './components/ModelMetrics/ModelMetrics';
 
 /**
  * QueryClient is created here (not inside LiveDetection) so it survives
@@ -27,6 +28,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Navigate to="/live-detection" replace />} />
               <Route path="/live-detection" element={<LiveDetection />} />
+              <Route path="/model-metrics" element={<ModelMetrics />} />
             </Routes>
           </DashboardLayout>
         </BrowserRouter>
