@@ -106,3 +106,6 @@ fed_runs/
 fed_baseline/
 *.csv
 
+
+# PyTorch model weights
+*.pt

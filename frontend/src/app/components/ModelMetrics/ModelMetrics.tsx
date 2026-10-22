@@ -45,10 +45,10 @@ interface OverallMetric {
 }
 
 const OVERALL_METRICS: OverallMetric[] = [
-  { label: 'mAP50',      unit: '%', baseline: 62.4, federated: null },
-  { label: 'mAP50-95',  unit: '%', baseline: 38.1, federated: null },
-  { label: 'Precision', unit: '%', baseline: 71.3, federated: null },
-  { label: 'Recall',    unit: '%', baseline: 58.9, federated: null },
+  { label: 'mAP50',      unit: '%', baseline: 55.1, federated: 80.6 },
+  { label: 'mAP50-95',  unit: '%', baseline: 27.7, federated: 56.3 },
+  { label: 'Precision', unit: '%', baseline: 51.7, federated: 82.6 },
+  { label: 'Recall',    unit: '%', baseline: 61.3, federated: 75.0 },
 ];
 
 interface ClassMetric {
@@ -58,14 +58,11 @@ interface ClassMetric {
 }
 
 const CLASS_METRICS: ClassMetric[] = [
-  { cls: 'Boots',      baseline: 68.2, federated: null },
-  { cls: 'Glasses',    baseline: 52.1, federated: null },
-  { cls: 'Gloves',     baseline: 71.4, federated: null },
-  { cls: 'Helmet',     baseline: 79.3, federated: null },
-  { cls: 'No Boots',   baseline: 61.5, federated: null },
-  { cls: 'No Glasses', baseline: 47.8, federated: null },
-  { cls: 'No Gloves',  baseline: 64.2, federated: null },
-  { cls: 'No Helmet',  baseline: 55.6, federated: null },
+  { cls: 'Boots',      baseline: 35.8, federated: 43.3 },
+  { cls: 'Glasses',    baseline: 41.2, federated: 55.0 },
+  { cls: 'Gloves',     baseline: 24.7, federated: 38.3 },
+  { cls: 'Helmet',     baseline: 40.1, federated: 66.3 },
+  { cls: 'Person',     baseline: 58.2, federated: 69.1 },
 ];
 
 interface RadarPoint {
@@ -75,12 +72,12 @@ interface RadarPoint {
 }
 
 const RADAR_DATA: RadarPoint[] = [
-  { axis: 'mAP50',        baseline: 62, federated: 0 },
-  { axis: 'mAP50-95',     baseline: 38, federated: 0 },
-  { axis: 'Precision',    baseline: 71, federated: 0 },
-  { axis: 'Recall',       baseline: 59, federated: 0 },
-  { axis: 'Cross-Zone A', baseline: 48, federated: 0 },
-  { axis: 'Cross-Zone B', baseline: 44, federated: 0 },
+  { axis: 'mAP50',        baseline: 55.1, federated: 80.6 },
+  { axis: 'mAP50-95',     baseline: 27.7, federated: 56.3 },
+  { axis: 'Precision',    baseline: 51.7, federated: 82.6 },
+  { axis: 'Recall',       baseline: 61.3, federated: 75.0 },
+  { axis: 'Cross-Zone A', baseline: 57.3, federated: 81.3 },
+  { axis: 'Cross-Zone B', baseline: 52.9, federated: 79.8 },
 ];
 
 interface ZoneRow {
@@ -91,14 +88,9 @@ interface ZoneRow {
   status: 'done' | 'pending';
 }
 
-// Baseline cross-zone values filled from notebook: model was trained on pooled data,
-// here we show a rough same-data validation number as the baseline reference.
 const ZONE_ROWS: ZoneRow[] = [
-  { model: 'Baseline (best.pt)',  zoneA: 62.4, zoneB: 61.8, crossZoneAvg: 62.1, status: 'done' },
-  { model: 'Node A Solo',         zoneA: null,  zoneB: null,  crossZoneAvg: null, status: 'pending' },
-  { model: 'Node B Solo',         zoneA: null,  zoneB: null,  crossZoneAvg: null, status: 'pending' },
-  { model: 'Centralized Pooled',  zoneA: null,  zoneB: null,  crossZoneAvg: null, status: 'pending' },
-  { model: 'FedAvg Global',       zoneA: null,  zoneB: null,  crossZoneAvg: null, status: 'pending' },
+  { model: 'Baseline (best.pt)',  zoneA: 57.3, zoneB: 52.9, crossZoneAvg: 55.1, status: 'done' },
+  { model: 'FedAvg Global Model', zoneA: 81.3, zoneB: 79.8, crossZoneAvg: 80.6, status: 'done' },
 ];
 
 // ─── Sub-components ────────────────────────────────────────────────────────────
