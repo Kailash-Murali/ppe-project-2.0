@@ -1,8 +1,6 @@
-# Data configuration for Zone B
-path: ./data/node_b
+path: D:/Projects/MVProject/federated/data/node_b
 train: images/train
 val: images/val
-
 nc: 11
 names:
   0: boots

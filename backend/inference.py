@@ -78,10 +78,10 @@ def detect_device() -> str:
     """
     # ── 1. Try Intel OpenVINO ─────────────────────────────────────────────
     try:
-        from openvino.runtime import Core
+        import openvino as ov
         from openvino.properties.device import Type
 
-        core = Core()
+        core = ov.Core()
         gpus = [d for d in core.available_devices if d.startswith("GPU")]
         if gpus:
             dgpus = []

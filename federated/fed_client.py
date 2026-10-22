@@ -52,6 +52,11 @@ class PPEClient(fl.client.NumPyClient):
         print(f"[{self.node_id}] Receiving global model weights and starting local fit...")
         set_weights(self.model, parameters)
 
+        # Save current aggregated model to temporary checkpoint so YOLO starts from it
+        round_ckpt = Path(f"{self.node_id}_current.pt").resolve()
+        self.model.save(str(round_ckpt))
+        self.model = YOLO(str(round_ckpt), task="detect")
+
         # Train local model for specified epochs
         self.model.train(
             data=self.data_yaml,
@@ -65,6 +70,12 @@ class PPEClient(fl.client.NumPyClient):
             name=f"{self.node_id}_training",
             exist_ok=True,
         )
+
+        # Reload trained weights from last.pt to ensure updated weights are extracted
+        if hasattr(self.model, "trainer") and self.model.trainer and hasattr(self.model.trainer, "last"):
+            last_weights_path = Path(self.model.trainer.last)
+            if last_weights_path.exists():
+                self.model = YOLO(str(last_weights_path), task="detect")
 
         updated_weights = get_weights(self.model)
         # Approximate number of training samples/steps
