@@ -1,6 +1,6 @@
-# Bray PPE Monitor — PoC v1
+# PPE Monitor — PoC v1
 
-The **Bray PPE Monitor** is a real-time compliance tracking system designed to monitor personnel safety equipment inside industrial sites, laboratories, or construction zones. The system uses a webcam feed or stationary IP cameras, automatically detects whether active workers are wearing required Personal Protective Equipment (PPE), and flags violations instantly.
+The **PPE Monitor** is a real-time compliance tracking system designed to monitor personnel safety equipment inside industrial sites, laboratories, or construction zones. The system uses a webcam feed or stationary IP cameras, automatically detects whether active workers are wearing required Personal Protective Equipment (PPE), and flags violations instantly.
 
 The project consists of a high-performance **FastAPI (Python) backend** running a YOLOv8 object detection model inside a `ThreadPoolExecutor` worker thread, and a modern **React (Vite + TS) dashboard** showing the camera feed, bounding box overlays, real-time compliance statuses, and voice safety alerts.
 
@@ -159,8 +159,3 @@ The system evaluates compliance based on the presence of the present class (`hel
 | `WebSocket` | `/ws` | Stream live camera frames (base64) and receive detection frames. |
 
 ---
-
-## 5. Further Documentation
-For deep-dives into functionality, business rules, and developer architecture, refer to:
-* **Functional overview**: [functional.md](file:///c:/Users/Kailash/Desktop/Internship/BrayPPE/poc/v1/functional.md)
-* **Technical details**: [technical.md](file:///c:/Users/Kailash/Desktop/Internship/BrayPPE/poc/v1/technical.md)
